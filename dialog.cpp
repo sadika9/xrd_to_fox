@@ -38,6 +38,9 @@ void Dialog::convertFile()
 
     static QDir lastPath = QDir::current();
     QString outFileName = QFileDialog::getSaveFileName(this, tr("Save"), lastPath.absolutePath(), tr("FOX (*.dat)"));
+    if (outFileName.isEmpty())
+        return;
+
     QFileInfo info(outFileName);
     lastPath = info.dir();
 
